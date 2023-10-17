@@ -1,14 +1,11 @@
 // import React from "react";
 
 import { Button, VStack } from "@chakra-ui/react";
-import ActionOverviewTileContainer from "./ActionManager/ActionOverviewTileContainer";
 import ActionAddLayer from "./ActionManager/ActionAddLayer";
 import { LEDActionBase } from "../../utils/LEDUtils/Actions/ActionBase";
-import { LEDStrip } from "../../utils/LEDUtils/Strip";
 import { LEDActionType } from "../../utils/LEDUtils/Actions/ActionTypes";
 import "../../assets/css/fonts.css"
 import * as React from "react";
-import { LEDActionGradient } from "../../utils/LEDUtils/Actions/Gradient";
 import GradientActionTile from "./ActionManager/GradientActionTile";
 
 interface Props {

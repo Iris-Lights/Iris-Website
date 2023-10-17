@@ -1,4 +1,3 @@
-import React from "react";
 import ActionOverviewTileContainer from "./ActionOverviewTileContainer";
 import "./ActionOverviewContainer.css";
 

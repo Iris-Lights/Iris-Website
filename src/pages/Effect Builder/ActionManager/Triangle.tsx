@@ -1,4 +1,3 @@
-import * as React from "react";
 import "./ActionOverviewContainer.css";
 import { RGBColor } from "../../../utils/LEDUtils/RGBColor";
 

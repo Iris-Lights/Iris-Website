@@ -10,12 +10,11 @@ import { LEDStrip } from "../../utils/LEDUtils/Strip";
 import * as React from "react";
 import { LEDActionGradient } from "../../utils/LEDUtils/Actions/Gradient";
 import { RGBColor } from "../../utils/LEDUtils/RGBColor";
-import { LEDActionSolid } from "../../utils/LEDUtils/Actions/SolidColor";
 
 const EffectBuilderLayout = () => {
 
-  const [numLEDs, setNumLEDs] = React.useState<number>(60);
-  const [strip, setStrip] = React.useState<LEDStrip>(new LEDStrip(60));
+  const [numLEDs, _numLEDs] = React.useState<number>(60);
+  const [_strip, setStrip] = React.useState<LEDStrip>(new LEDStrip(60));
   const [actions, setActions] = React.useState<LEDActionBase[]>([]);
 
   React.useEffect(() => {
