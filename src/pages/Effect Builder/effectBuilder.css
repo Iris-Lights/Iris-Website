@@ -2,10 +2,6 @@
     background-image: linear-gradient(135deg, #FF9494, #00CECE);
     height: 100%;
     width: 95%;
-    /* border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    position:relative; */
     display: grid;
     grid-template-areas: 
         "room manager"
@@ -14,7 +10,9 @@
     grid-template-rows: 1fr 1fr;
     border-radius: 10px;
     animation: fadein 1s;
-    justify-content: space-between;
+    grid-gap: 1em;
+    padding: 1em;
+    margin:auto;
 }
 
 @keyframes fadein {
@@ -28,7 +26,7 @@
     grid-column: 1;
     grid-row: 1;
     grid-area:room;
-    background: rgba(224, 221, 221, 0.6);
+    background: rgba(224, 221, 221, .6);
     border-radius: 10px;
 }
 
@@ -41,6 +39,8 @@
     grid-area:manager;
     background: rgba(224, 221, 221, 0.6);
     border-radius: 10px;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
 }
 
 .editor{
@@ -57,17 +57,11 @@
 .action-container{
     background: rgba(255, 255, 255, 0.6);
     width: 95%;
-    border-radius: 9px;
     display: grid;
-    margin-left: 2.5%;
     border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
     height: 10vh;
     flex-shrink: 0;
     flex-grow: 0;
-    border-width: 0px;
     position: relative;
 }
 
