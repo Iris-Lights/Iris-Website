@@ -14,11 +14,48 @@
     position:relative;
 }
 
-.add-layer-fake{
+.action-tile-container-inner{
     position:relative;
     font-family: Poppins-SemiBold;
     color:black;
- 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.action-tile-container-1{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    height: 100%;
+    width: 50%;
+}
+
+.action-tile-container-2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    height: 100%;
+    width: 50%;
+}
+
+.button-stack{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 10%;
+}
+
+.layer-name{
+    margin-left: 5%;
+    font-family: Poppins-Regular;
 }
 
 .add-layer-btn{
