@@ -14,6 +14,7 @@
     grid-template-rows: 1fr 1fr;
     border-radius: 10px;
     animation: fadein 1s;
+    justify-content: space-between;
 }
 
 @keyframes fadein {
@@ -21,88 +22,36 @@
     to   { opacity: 1; }
 }
 
-.top-pane-container-left{
-    height: 100%;
+.room{
     width: 100%;
+    height: 100%;
     grid-column: 1;
     grid-row: 1;
-}
-
-.top-pane-container-right{
-    height: 100%;
-    width: 100%;
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.room{
-    /* grid-column:1;
-    grid-row: 1; */
     grid-area:room;
-    color: red;
-    height: 100%;
-    padding: 1%;
+    background: rgba(224, 221, 221, 0.6);
+    border-radius: 10px;
 }
 
 .manager{
-    /* grid-column:2;
-    grid-row: 1; */
-    grid-area:manager;
-    color: red;
-    padding: 1%;
+    width: 100%;
     height: 100%;
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: scroll;
+    grid-area:manager;
+    background: rgba(224, 221, 221, 0.6);
+    border-radius: 10px;
 }
 
 .editor{
-    /* grid-column:1/2;
-    grid-row: 2; */
-    color: red;
+    width: 100%;
+    height: 100%;
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 3;
     padding: 1%;
-}
-
-.eb-manager-view{
-    border-radius: 10px;
-    height: 100%;
-    /* margin-right: 4%;
-    margin-left: 2%;
-    margin-top: 4%; */
-    background: rgba(224, 221, 221, 0.6);    
-    /* overflow-y:scroll;
-    flex-shrink: 1;
-    flex-grow: 1;
-    position: relative;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%; */
-    /* grid-column:2;
-    grid-row: 1; */
-}
-
-.eb-room-view{
     background: rgba(224, 221, 221, 0.6);
     border-radius: 10px;
-    /* height: 100%;
-    margin-left: 4%;
-    margin-right: 2%;
-    margin-top: 4%; */
-    opacity:.6;
-    height: 100%;
-    /* grid-column:1;
-    grid-row: 1; */
-}
-.eb-editor-view{
-    background: rgba(224, 221, 221, 0.6);
-    border-radius: 10px;
-    height: 100%;
-    /* margin-top:4%;
-    margin-left: 2%;
-    margin-right:2%;
-    opacity:.6; */
-    /* grid-column:1/2;
-    grid-row: 2; */
-    
 }
 
 .action-container{

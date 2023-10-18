@@ -1,7 +1,7 @@
 // import React from "react";
 
 const Room = () => {
-  return <div className="eb-room-view">Room</div>;
+  return <div className="room">Room</div>;
 };
 
 export default Room;

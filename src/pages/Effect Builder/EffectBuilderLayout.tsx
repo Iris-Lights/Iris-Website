@@ -31,48 +31,27 @@ const EffectBuilderLayout = () => {
         [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
         numLEDs
       ),
-      // new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
-      // new LEDActionSolid([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
-      // new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
+      new LEDActionGradient(
+        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
+        numLEDs
+      ),
+      new LEDActionGradient(
+        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
+        numLEDs
+      ),
+      new LEDActionGradient(
+        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
+        numLEDs
+      ),
     ]);
   }, [numLEDs]);
 
   return (
     <div className="eb-main-view">
-      <div className="top-pane-container-left">
-        <div className="room">
-          <Room />
-        </div>
-      </div>
-      <div className="top-pane-container-right">
-        <div className="manager">
-          {" "}
-          <ActionManager LEDActionList={actions} />{" "}
-        </div>
-      </div>
-      <div className="editor">
-        {" "}
-        <ActionEditor />{" "}
-      </div>
+      <Room />
+      <ActionManager LEDActionList={actions} />
+      <ActionEditor />
     </div>
-    // <div className="eb-main-view">
-    //   <Grid
-    //     templateAreas={`"room manager"
-    //                     "editor editor"`}
-    //     w="100%"
-    //     h="90%"
-    //   >
-    //     <GridItem area={"room"}>
-    //       <Room />
-    //     </GridItem>
-    //     <GridItem area={"manager"} >
-    //       <ActionManager LEDActionList={actions} />
-    //     </GridItem>
-    //     <GridItem area={"editor"}>
-    //       <ActionEditor />
-    //     </GridItem>
-    //   </Grid>
-    // </div>
   );
 };
 

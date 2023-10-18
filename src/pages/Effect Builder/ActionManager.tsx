@@ -4,7 +4,7 @@ import { Button, VStack } from "@chakra-ui/react";
 import ActionAddLayer from "./ActionManager/ActionAddLayer";
 import { LEDActionBase } from "../../utils/LEDUtils/Actions/ActionBase";
 import { LEDActionType } from "../../utils/LEDUtils/Actions/ActionTypes";
-import "../../assets/css/fonts.css"
+import "../../assets/css/fonts.css";
 import * as React from "react";
 import GradientActionTile from "./ActionManager/GradientActionTile";
 
@@ -19,7 +19,7 @@ const ActionManager = ({ LEDActionList }: Props) => {
         case LEDActionType.SOLID:
           return <ActionAddLayer key={i} />;
         case LEDActionType.GRADIENT:
-          return <GradientActionTile gradientAction={action}/>;
+          return <GradientActionTile gradientAction={action} />;
         case LEDActionType.SHIFT:
           return <p key={i}>SHIFT</p>;
       }
@@ -49,7 +49,7 @@ const ActionManager = ({ LEDActionList }: Props) => {
   }, []);
 
   return (
-    <VStack spacing={4} className="eb-manager-view" alignItems={"center"}>
+    <VStack spacing={4} className="manager" alignItems={"center"}>
       {generateActionOverviewTiles()}
       <Button fontFamily="Poppins-Bold">Add Layer</Button>
     </VStack>
