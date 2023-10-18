@@ -1,40 +1,40 @@
 import { RGBColor } from "../RGBColor";
 import { LEDActionType } from "./ActionTypes";
 import { LEDStrip } from "../Strip";
-
 export abstract class LEDActionBase {
 
-    protected pColors: RGBColor[];
-
-    constructor(public type: LEDActionType, public colors: RGBColor[], public numLEDs: number = 60) {
+    constructor(public type: LEDActionType, public colors: RGBColor[], public numLEDs: number = 60, public startIdx: number | undefined = undefined, public endIdx: number | undefined = undefined) {
         this.type = type;
         this.colors = colors;
-        this.pColors = new Array<RGBColor>(this.colors.length);
-        
-        for(let i = 0; i < this.colors.length; i++){
-            this.pColors[i] = new RGBColor(0, 0, 0);
-        }
-
-        this.updatepColors();
+        this.numLEDs = numLEDs;
+        this.startIdx = Math.min(startIdx ?? 0, 0);
+        this.endIdx = Math.max(endIdx ?? numLEDs - 1, numLEDs - 1);
     }
 
-    protected updatepColors() {
-        this.colors.map((col, idx) => {this.pColors[idx].copyFrom(col)})
+    public setColors(colors: RGBColor[]) {
+        this.colors = colors;
+        this.onColorsChanged();
     }
 
-    protected hasColorsChanged(): boolean {
-        for(let i = 0; i < this.colors.length; i++){
-            if(!this.colors[i].equals(this.pColors[i])){
-                this.updatepColors()
-                return true
-            }
-        }
-
-        return false
-    }
-
+    /**
+     * Update an LED strip with the current action.
+     * 
+     * @param LEDStrip 
+     */
     public abstract update(LEDStrip: LEDStrip): void;
 
+    /**
+     * return type of action
+     * 
+     * @returns {LEDActionType}
+     */
     public abstract getActionType(): LEDActionType;
+
+    /**
+     * Code is run when the LEDaction's colors have changed
+     */
+    protected onColorsChanged(): void {
+        // override
+    };
 }
 

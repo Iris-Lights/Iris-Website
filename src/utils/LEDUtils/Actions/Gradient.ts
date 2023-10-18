@@ -11,10 +11,10 @@ export class LEDActionGradient extends LEDActionBase {
     constructor(public colors: RGBColor[], public numLEDs: number = 60) {
         super(LEDActionType.GRADIENT, colors, numLEDs);
         this.leds = new Array<RGBColor>(numLEDs);
-        this.onColorsChanged();
+        this.setup();
     }
 
-    private onColorsChanged() {
+    protected setup() {
 
         const colors = this.colors; 
         const numLEDs = this.leds.length;
@@ -44,12 +44,12 @@ export class LEDActionGradient extends LEDActionBase {
         }
     }
 
-    public update(LEDStrip: LEDStrip) {
+    protected onColorsChanged(): void {
+        this.setup();
+    }
 
-        if(this.hasColorsChanged()){
-            this.onColorsChanged();
-        }
-        
+
+    public update(LEDStrip: LEDStrip) {        
         for(let i = 0; i < this.numLEDs; i++) {
             LEDStrip.LEDs[i] = this.leds[i];
         }
