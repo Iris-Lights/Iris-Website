@@ -15,34 +15,20 @@ const EffectBuilderLayout = () => {
   const [_strip, setStrip] = React.useState<LEDStrip>(new LEDStrip(60));
   const [actions, setActions] = React.useState<LEDActionBase[]>([]);
 
+  // const handleDelete = (LEDAction: LEDActionBase) => {
+  //   setActions(actions.filter((action) => action !== LEDAction));
+  // };
+
   React.useEffect(() => {
     setStrip(new LEDStrip(numLEDs));
 
     setActions([
-      new LEDActionGradient(
-        [new RGBColor(173, 216, 230), new RGBColor(0, 0, 255)],
-        numLEDs
-      ),
-      new LEDActionGradient(
-        [new RGBColor(255, 0, 0), new RGBColor(255, 127, 80)],
-        numLEDs
-      ),
-      new LEDActionGradient(
-        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
-        numLEDs
-      ),
-      new LEDActionGradient(
-        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
-        numLEDs
-      ),
-      new LEDActionGradient(
-        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
-        numLEDs
-      ),
-      new LEDActionGradient(
-        [new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)],
-        numLEDs
-      ),
+      new LEDActionGradient([new RGBColor(173, 216, 230), new RGBColor(0, 0, 255)], numLEDs),
+      new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(255, 127, 80)], numLEDs),
+      new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
+      new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
+      new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
+      new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
     ]);
   }, [numLEDs]);
 

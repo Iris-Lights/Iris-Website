@@ -1,12 +1,11 @@
 // import React from "react";
 
 import { Button, VStack } from "@chakra-ui/react";
-import ActionAddLayer from "./ActionManager/ActionAddLayer";
 import { LEDActionBase } from "../../utils/LEDUtils/Actions/ActionBase";
 import { LEDActionType } from "../../utils/LEDUtils/Actions/ActionTypes";
 import "../../assets/css/fonts.css";
 import * as React from "react";
-import GradientActionTile from "./ActionManager/GradientActionTile";
+import ActionOverviewTileContainer from "./ActionManager/ActionOverviewTileContainer";
 
 interface Props {
   LEDActionList: LEDActionBase[];
@@ -17,9 +16,9 @@ const ActionManager = ({ LEDActionList }: Props) => {
     return LEDActionList.map((action, i) => {
       switch (action.getActionType()) {
         case LEDActionType.SOLID:
-          return <ActionAddLayer key={i} />;
+          return <ActionOverviewTileContainer key={i} name="Solid" gradientAction={action} />;
         case LEDActionType.GRADIENT:
-          return <GradientActionTile gradientAction={action} />;
+          return <ActionOverviewTileContainer key={i} name="Gradient Layer" gradientAction={action} />;
         case LEDActionType.SHIFT:
           return <p key={i}>SHIFT</p>;
       }
