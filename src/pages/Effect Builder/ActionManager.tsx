@@ -9,16 +9,23 @@ import ActionOverviewTileContainer from "./ActionManager/ActionOverviewTileConta
 
 interface Props {
   LEDActionList: LEDActionBase[];
+  onDeleteActionAtIndex: (index: number) => void;
 }
 
-const ActionManager = ({ LEDActionList }: Props) => {
+const ActionManager = ({ LEDActionList, onDeleteActionAtIndex }: Props) => {
   const generateActionOverviewTiles = () => {
     return LEDActionList.map((action, i) => {
       switch (action.getActionType()) {
         case LEDActionType.SOLID:
-          return <ActionOverviewTileContainer key={i} name="Solid" gradientAction={action} />;
+          return <ActionOverviewTileContainer 
+            onDelete={() => {onDeleteActionAtIndex(i)}} 
+            key={i} name="Solid" 
+            gradientAction={action} />;
         case LEDActionType.GRADIENT:
-          return <ActionOverviewTileContainer key={i} name="Gradient Layer" gradientAction={action} />;
+          return <ActionOverviewTileContainer 
+          onDelete={() => {onDeleteActionAtIndex(i)}} 
+          key={i} name="Gradient Layer" 
+          gradientAction={action} />;
         case LEDActionType.SHIFT:
           return <p key={i}>SHIFT</p>;
       }

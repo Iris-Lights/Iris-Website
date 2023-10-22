@@ -15,9 +15,11 @@ const EffectBuilderLayout = () => {
   const [_strip, setStrip] = React.useState<LEDStrip>(new LEDStrip(60));
   const [actions, setActions] = React.useState<LEDActionBase[]>([]);
 
-  // const handleDelete = (LEDAction: LEDActionBase) => {
-  //   setActions(actions.filter((action) => action !== LEDAction));
-  // };
+  const onDeleteActionAtIndex = ( index: number) => {
+    const newActions = [...actions];
+    newActions.splice(index, 1);
+    setActions(newActions);
+  }
 
   React.useEffect(() => {
     setStrip(new LEDStrip(numLEDs));
@@ -35,7 +37,7 @@ const EffectBuilderLayout = () => {
   return (
     <div className="eb-main-view">
       <Room />
-      <ActionManager LEDActionList={actions} />
+      <ActionManager onDeleteActionAtIndex={onDeleteActionAtIndex} LEDActionList={actions}  />
       <ActionEditor />
     </div>
   );

@@ -5,9 +5,10 @@ import { Triangle } from "./Triangle";
 interface Props {
   gradientAction: LEDActionBase;
   name: string;
+  onDelete(): void;
 }
 
-const ActionOverviewTileContainer = ({ gradientAction, name }: Props) => {
+const ActionOverviewTileContainer = ({ gradientAction, name, onDelete }: Props) => {
   return (
     <div className="action-container">
       <Triangle RGBColors={gradientAction.colors} />
@@ -18,7 +19,7 @@ const ActionOverviewTileContainer = ({ gradientAction, name }: Props) => {
         <div className="action-tile-container-2">
           <div className="button-stack">
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={onDelete}>Delete</button>
           </div>
         </div>
       </div>
