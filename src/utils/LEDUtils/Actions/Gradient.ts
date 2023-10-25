@@ -51,7 +51,7 @@ export class LEDActionGradient extends LEDActionBase {
 
     public update(LEDStrip: LEDStrip) {        
         for(let i = 0; i < this.numLEDs; i++) {
-            LEDStrip.LEDs[i] = this.leds[i];
+            LEDStrip.LEDs[i].copyFrom(this.leds[i]);
         }
     }
 

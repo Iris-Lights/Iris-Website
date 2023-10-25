@@ -24,6 +24,8 @@ class IrisLightViewer extends Component<IrisLightViewerProps, IrisLightViewerSta
   lightStrip: LEDStrip;
   canvasRef: React.RefObject<HTMLCanvasElement>;
 
+  isRendering = false;
+
   constructor(props: any) {
       super(props);
       this.lightStrip = new LEDStrip(60);
@@ -36,7 +38,10 @@ class IrisLightViewer extends Component<IrisLightViewerProps, IrisLightViewerSta
           ledStrip: new LEDStrip(60)
       });
       this.resizeCanvasToDisplaySize();
-      this.renderCanvasLights();
+      if(!this.isRendering){
+        this.isRendering = true;
+        this.renderCanvasLights();
+      }
   }
 
   componentDidUpdate() {
@@ -81,13 +86,13 @@ class IrisLightViewer extends Component<IrisLightViewerProps, IrisLightViewerSta
           grd.addColorStop(1, this.lightStrip.LEDs[(i + 1) % this.lightStrip.numLEDs].toHex());
 
           // make gradient direction horizontal
-          ctx.fillStyle = grd;
+          //ctx.fillStyle = grd;
           ctx.fillRect(x, y, sizeX + 2, sizeY);
       }
 
       setTimeout(() => {
           this.renderCanvasLights();
-      }, 1000 / 30);
+      }, 1000 / 10);
 
   }
 

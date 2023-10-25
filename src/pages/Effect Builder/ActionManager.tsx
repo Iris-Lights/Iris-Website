@@ -6,6 +6,8 @@ import { LEDActionType } from "../../utils/LEDUtils/Actions/ActionTypes";
 import "../../assets/css/fonts.css";
 import * as React from "react";
 import GradientActionOverviewTileContainer from "./ActionManager/GradientActionOverviewTileContainer";
+import SpacedActionOverviewTileContainer from "./ActionManager/SpacedActionOverviewTileContainer";
+import ShiftActionOverviewTileContainer from "./ActionManager/ShiftActionOverviewTileContainer";
 
 interface Props {
   LEDActionList: LEDActionBase[];
@@ -27,7 +29,14 @@ const ActionManager = ({ LEDActionList, onDeleteActionAtIndex }: Props) => {
           key={i} name="Gradient Layer" 
           gradientAction={action} />;
         case LEDActionType.SHIFT:
-          return <p key={i}>SHIFT</p>;
+          return <ShiftActionOverviewTileContainer 
+          onDelete={() => {onDeleteActionAtIndex(i)}} 
+          key={i}/>;
+        case LEDActionType.SPACED:
+          return <SpacedActionOverviewTileContainer 
+          onDelete={() => {onDeleteActionAtIndex(i)}} 
+          key={i}
+          spacedAction={action} />;
       }
     });
   };

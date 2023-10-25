@@ -11,7 +11,8 @@
 export enum LEDActionType {
     GRADIENT,
     SOLID,
-    SHIFT
+    SHIFT,
+    SPACED
 }
 
 export const getActionTypeList = (): LEDActionType[] => {
