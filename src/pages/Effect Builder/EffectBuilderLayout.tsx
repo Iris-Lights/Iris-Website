@@ -9,6 +9,7 @@ import { LEDStrip } from "../../utils/LEDUtils/Strip";
 import * as React from "react";
 import { LEDActionGradient } from "../../utils/LEDUtils/Actions/Gradient";
 import { RGBColor } from "../../utils/LEDUtils/RGBColor";
+import { LEDActionShift } from "../../utils/LEDUtils/Actions/Shift";
 
 const EffectBuilderLayout = () => {
   const [numLEDs, _numLEDs] = React.useState<number>(60);
@@ -31,12 +32,13 @@ const EffectBuilderLayout = () => {
       new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
       new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
       new LEDActionGradient([new RGBColor(255, 0, 0), new RGBColor(0, 255, 0)], numLEDs),
+      new LEDActionShift([], numLEDs)
     ]);
   }, [numLEDs]);
 
   return (
     <div className="eb-main-view">
-      <Room />
+      <Room actions={actions} />
       <ActionManager onDeleteActionAtIndex={onDeleteActionAtIndex} LEDActionList={actions}  />
       <ActionEditor />
     </div>

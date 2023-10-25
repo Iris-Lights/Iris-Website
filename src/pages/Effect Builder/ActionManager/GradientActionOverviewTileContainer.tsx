@@ -8,7 +8,7 @@ interface Props {
   onDelete(): void;
 }
 
-const ActionOverviewTileContainer = ({ gradientAction, name, onDelete }: Props) => {
+const GradientActionOverviewTileContainer = ({ gradientAction, name, onDelete }: Props) => {
   return (
     <div className="action-container">
       <Triangle RGBColors={gradientAction.colors} />
@@ -27,4 +27,4 @@ const ActionOverviewTileContainer = ({ gradientAction, name, onDelete }: Props) 
   );
 };
 
-export default ActionOverviewTileContainer;
+export default GradientActionOverviewTileContainer;

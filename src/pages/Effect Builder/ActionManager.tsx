@@ -5,7 +5,7 @@ import { LEDActionBase } from "../../utils/LEDUtils/Actions/ActionBase";
 import { LEDActionType } from "../../utils/LEDUtils/Actions/ActionTypes";
 import "../../assets/css/fonts.css";
 import * as React from "react";
-import ActionOverviewTileContainer from "./ActionManager/ActionOverviewTileContainer";
+import GradientActionOverviewTileContainer from "./ActionManager/GradientActionOverviewTileContainer";
 
 interface Props {
   LEDActionList: LEDActionBase[];
@@ -17,12 +17,12 @@ const ActionManager = ({ LEDActionList, onDeleteActionAtIndex }: Props) => {
     return LEDActionList.map((action, i) => {
       switch (action.getActionType()) {
         case LEDActionType.SOLID:
-          return <ActionOverviewTileContainer 
+          return <GradientActionOverviewTileContainer 
             onDelete={() => {onDeleteActionAtIndex(i)}} 
             key={i} name="Solid" 
             gradientAction={action} />;
         case LEDActionType.GRADIENT:
-          return <ActionOverviewTileContainer 
+          return <GradientActionOverviewTileContainer 
           onDelete={() => {onDeleteActionAtIndex(i)}} 
           key={i} name="Gradient Layer" 
           gradientAction={action} />;
