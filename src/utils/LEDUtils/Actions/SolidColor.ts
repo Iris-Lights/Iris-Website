@@ -10,7 +10,7 @@ export class LEDActionSolid extends LEDActionBase {
 
     public update(LEDStrip: LEDStrip) {
         for (let i = 0; i < this.numLEDs; i++) {
-            LEDStrip.LEDs[i] = this.colors[0];
+            LEDStrip.LEDs[i].copyFrom(this.colors[0]);
         }
     }
 
